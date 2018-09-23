@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  license: MyString
+  category: MyString
+  sub_category: MyString
+  unit: MyString
+  unit_value: 1
+  year: 2018-09-19
+
+two:
+  license: MyString
+  category: MyString
+  sub_category: MyString
+  unit: MyString
+  unit_value: 1
+  year: 2018-09-19
