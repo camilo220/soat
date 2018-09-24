@@ -3,6 +3,10 @@ class Vehicle < ApplicationRecord
 
   before_save :set_rate_id
   before_save :upcase_license
+
+  # Associations
+  belongs_to :user
+  belongs_to :rate
   
   
   def age

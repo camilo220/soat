@@ -1,5 +1,9 @@
 class Rate < ApplicationRecord
   before_save :set_total
+  
+  # Associations
+  has_many :vehicles
+
 
   # Constants
   FOSYGA_RATE = 0.5
