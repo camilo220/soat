@@ -7,6 +7,8 @@ class Vehicle < ApplicationRecord
   # Associations
   belongs_to :user
   belongs_to :rate
+
+  has_many :insurances
   
   
   def age
@@ -31,6 +33,19 @@ class Vehicle < ApplicationRecord
   def upcase_license
     license.upcase!
   end
+
+  def next_insurance_start_date 
+    if insurances.empty? || (!insurances.empty? && !is_insurance?)
+      DateTime.now
+    else
+      insurances.order('end_date DESC').first.end_date + 1.day
+    end
+  end 
+
+
+  def is_insurance?
+    insurances.present? && insurances.order('end_date DESC').first.end_date > DateTime.now
+  end 
   
 
 end
