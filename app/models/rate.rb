@@ -4,7 +4,10 @@ class Rate < ApplicationRecord
   # Associations
   has_many :vehicles
 
-
+  # Validations
+  validates :code, uniqueness: true
+  validates :category, uniqueness: {scope: [:sub_category, :unit_of_measurement, :minimum_unit, :maximum_unit], message: ", sub category and units has to be unique"}
+  
   # Constants
   FOSYGA_RATE = 0.5
   RUNT_RATE = 1610
