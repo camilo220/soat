@@ -38,7 +38,7 @@ class Api::V1::InsurancesController < Api::BaseController
   private
 
   def insurance_params
-    params.require(:insurance).permit(:name, :last_name, :email, :document_type, :document, :phone, :password, :password_confirmation)
+    params.require(:insurance).permit(:payment_reference, :vehicle_id)
   end
 end 
 
