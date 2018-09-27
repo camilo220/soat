@@ -1,7 +1,5 @@
 class Api::V1::RatesController < Api::BaseController
-  
-  
-  
+   
   def index
     render json: Rate.all
   end 
@@ -34,9 +32,7 @@ class Api::V1::RatesController < Api::BaseController
   def destroy 
     rate = Rate.find(params[:id])
     rate.destroy
-    render json: {ok: "Rate Delete su"}, status: 200
-
-    
+    render json: {ok: "Rate Delete succes"}.to_json, status: 200
   end
 
   private
