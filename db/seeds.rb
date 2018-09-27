@@ -17,4 +17,7 @@ User.create(name: 'Camilo', last_name: 'Lopez', email: 'camilo@example.com', doc
 # Create Vehicle
 year = Date.current - 3.years; Vehicle.create(license: "qwe123", category: "CAMPEROS Y CAMIONETAS", sub_category: "CAMPEROS Y CAMIONETAS", unit_of_measurement: "C.C", unit_value: 1400, year: year, user_id: 1)
 
+# Create an Insurance for Vehicle #1
+Insurance.create(payment_reference: "0987", vehicle_id: 1) 
+
 
