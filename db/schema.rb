@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180925183125) do
   create_table "insurances", force: :cascade do |t|
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
+    t.datetime "date_of_purchase", null: false
     t.string "payment_reference", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
