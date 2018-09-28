@@ -6,16 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# Create Coverage
+Coverage.create(death: 750, medical_expenses: 800, permanent_inability: 180, transportation_expenses: 10, unit: "SMLDV")
+
 # Create Rates
-Rate.create(code: 110, category: "MOTOS", sub_category: "MOTOS", unit_of_measurement: "C.C", minimum_unit: "0", maximum_unit: "100", bonus: 203100)
-Rate.create(code: 212, category: "CAMPEROS Y CAMIONETAS", sub_category: "CAMPEROS Y CAMIONETAS", unit_of_measurement: "C.C", minimum_unit: "0", maximum_unit: "1500", minimum_age: 0, maximum_age: 10, bonus: 326800)
-Rate.create(code: 310, category: "CARGA O MIXTO", sub_category: "CARGA O MIXTO", unit_of_measurement: "Toneladas", minimum_unit: "0", maximum_unit: "5", bonus: 366300)
+Rate.create(code: 110, category: "MOTOS", sub_category: "MOTOS", unit_of_measurement: "C.C", minimum_unit: "0", maximum_unit: "100", bonus: 203100, coverage_id: 1)
+Rate.create(code: 212, category: "CAMPEROS Y CAMIONETAS", sub_category: "CAMPEROS Y CAMIONETAS", unit_of_measurement: "C.C", minimum_unit: "0", maximum_unit: "1500", minimum_age: 0, maximum_age: 10, bonus: 326800, coverage_id: 1)
+Rate.create(code: 310, category: "CARGA O MIXTO", sub_category: "CARGA O MIXTO", unit_of_measurement: "Toneladas", minimum_unit: "0", maximum_unit: "5", bonus: 366300, coverage_id: 1)
 
 # Create User 
 User.create(name: 'Camilo', last_name: 'Lopez', email: 'camilo@example.com', document_type: "Cedula", document: "1018", phone: "300725", password: "secret123", password_confirmation: "secret123")
 
 # Create Vehicle
-year = Date.current - 3.years; Vehicle.create(license: "qwe123", category: "CAMPEROS Y CAMIONETAS", sub_category: "CAMPEROS Y CAMIONETAS", unit_of_measurement: "C.C", unit_value: 1400, year: year, user_id: 1)
+year = Date.current - 3.years
+Vehicle.create(license: "qwe123", category: "CAMPEROS Y CAMIONETAS", sub_category: "CAMPEROS Y CAMIONETAS", unit_of_measurement: "C.C", unit_value: 1400, year: year, user_id: 1)
 
 # Create an Insurance for Vehicle #1
 Insurance.create(payment_reference: "0987", vehicle_id: 1) 

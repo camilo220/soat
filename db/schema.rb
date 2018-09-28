@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 20180925183125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "coverages", force: :cascade do |t|
+    t.float "death"
+    t.float "medical_expenses"
+    t.float "permanent_inability"
+    t.float "transportation_expenses"
+    t.string "unit", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "insurances", force: :cascade do |t|
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
@@ -40,7 +50,9 @@ ActiveRecord::Schema.define(version: 20180925183125) do
     t.float "total", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "coverage_id", null: false
     t.index ["code"], name: "index_rates_on_code", unique: true
+    t.index ["coverage_id"], name: "index_rates_on_coverage_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,5 +93,6 @@ ActiveRecord::Schema.define(version: 20180925183125) do
     t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 
+  add_foreign_key "rates", "coverages"
   add_foreign_key "vehicles", "rates"
 end
