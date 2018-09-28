@@ -4,6 +4,7 @@ class InsuranceSummaryPdf < Prawn::Document
     @insurance = insurance
     @vehicle = insurance.vehicle
     @user = @vehicle.user
+    @rate = @vehicle.rate
     build
   end
 
@@ -11,10 +12,13 @@ class InsuranceSummaryPdf < Prawn::Document
     title
     client_information
     vehicle_information
+    price_detail
   end
 
   def title
     text "Resumen de compra", style: :bold, size: 30
+    draw_text "#{@insurance.created_at.to_date}", :at => [500, 0]
+    
   end
 
   def client_information
@@ -32,6 +36,20 @@ class InsuranceSummaryPdf < Prawn::Document
     text "Sub Categoria: #{@vehicle.sub_category}"
     text "#{@vehicle.unit_of_measurement} #{@vehicle.unit_value}"
     text "Fecha de fabricacion: #{@vehicle.year}" if @vehicle.year?
+  end
+
+  def price_detail
+    move_down 20
+    detail_columns_name = ["Prima", "Contribucion al FOSYGA", "Tasa RUNT", "Total"]
+    detail_values = ["$#{@rate.bonus}", "$#{@rate.fosyga}", "$#{@rate.runt}", "$#{@rate.total}"]
+    data = [detail_columns_name, detail_values]
+
+    text "Resumen de precio", style: :bold, size: 20
+
+    table(data) do
+      column(3).font_style = :bold
+    end
+
   end
   
   
