@@ -5,6 +5,7 @@ class InsuranceSummaryPdf < Prawn::Document
     @vehicle = insurance.vehicle
     @user = @vehicle.user
     @rate = @vehicle.rate
+    @coverage = @rate.coverage
     build
   end
 
@@ -13,6 +14,7 @@ class InsuranceSummaryPdf < Prawn::Document
     client_information
     vehicle_information
     price_detail
+    coverage
   end
 
   def title
@@ -50,6 +52,36 @@ class InsuranceSummaryPdf < Prawn::Document
       column(3).font_style = :bold
     end
 
+  end
+
+  def coverage
+    move_down 20
+    text "Cobertura", style: :bold, size: 20
+    start_date = @insurance.start_date.strftime("%d-%b-%Y a las %H:%m")
+    end_date = @insurance.end_date.strftime("%d-%b-%Y hasta las %H:%m")
+    text "Con esta poliza estaras protegido durante el periodo comprendido entre: <b>#{start_date}</b> y <b>#{end_date}</b>, ademas estos son los valores que te cubrira la poliza:", inline_format: true
+    move_down 10
+    coverage_table
+  end
+
+  def coverage_table
+   columns =  ["Muerte y gastos funerarios", "Gastos médicos", "Incapacidad permanente", "Gastos de transporte"]
+   columns_values = [
+     "#{coverage_item_formater(@coverage.death)}",
+     "#{coverage_item_formater(@coverage.medical_expenses)}",
+     "#{coverage_item_formater(@coverage.permanent_inability)}",
+     "#{coverage_item_formater(@coverage.transportation_expenses)}",
+    ]
+
+    data = [columns, columns_values]
+
+    table(data) do
+      row(0).font_style = :bold
+    end 
+  end
+
+  def coverage_item_formater(item)
+    "#{item} #{@coverage.unit}"
   end
   
   
