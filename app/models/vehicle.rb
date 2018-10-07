@@ -11,6 +11,11 @@ class Vehicle < ApplicationRecord
   has_many :insurances
   
   
+  # Validations
+  validates :user_id, presence: true
+  validates :rate_id, presence: true
+  
+  
   def age
     dob = self.year
     now = Date.current
