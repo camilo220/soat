@@ -1,0 +1,4 @@
+<% @vehicles.each do |vehicle| %>
+  <p> <%= vehicle.license %> </p>
+<% end %>
+<%= link_to "new vehicle", new_vehicle_path, class: "btn btn-xs btn-primary" %>

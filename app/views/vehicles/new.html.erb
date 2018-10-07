@@ -1,0 +1,7 @@
+<h1> New Vehicle </h1>
+ 
+ <%= form_for(@vehicle, url: vehicles_path(@vehicle), method: :post) do |f| %>
+  <%= f.text_field :license %>
+  <%= f.submit %>
+
+ <% end %>
