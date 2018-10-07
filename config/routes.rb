@@ -6,6 +6,14 @@ Rails.application.routes.draw do
     get '/:id' => 'insurances#show'
   end
 
+  root to: "vehicles#index"
+  resources :vehicles
+
+  namespace :admins do
+    resources :vehicles, only: :index
+  end
+
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       scope :rates do
