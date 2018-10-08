@@ -11,7 +11,10 @@ class VehiclesController < ApplicationController
     @categories = Vehicle::CATEGORIES
     @selected_category = Vehicle::CATEGORIES.first
     @sub_categories = Vehicle::SUB_CATEGORIES[@selected_category]
+    @unit_of_measurement = Vehicle::UNIT_OF_MEASUREMENT[Vehicle::SUB_CATEGORIES[@selected_category].first]
     gon.sub_category = Vehicle::SUB_CATEGORIES
+    gon.unit_of_measurement = Vehicle::UNIT_OF_MEASUREMENT
+    
   end
 
   def create 

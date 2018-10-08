@@ -29,6 +29,19 @@ class Vehicle < ApplicationRecord
     "SERVICIO PUBLICO INTERMUNICIPAL" => ["SERVICIO PUBLICO INTERMUNICIPAL"]
   }
 
+  UNIT_OF_MEASUREMENT = {
+    "Ciclomotor" => "",
+    "MOTOS" => "C.C",
+    "CAMPEROS Y CAMIONETAS" => "C.C",
+    "CARGA O MIXTO" => "TONELADAS",
+    "OFICIALES ESPECIALES" => "C.C",
+    "AUTOS FAMILIARES" => "C.C",
+    "AUTOS DE NEGOCIOS Y TAXIS" => "C.C",
+    "VEHICULO PARA SEIS O MAS PASAJEROS" => "C.C",
+    "BUSES Y BUSETAS DE SERVICIO PUBLICO URBANO" => "",
+    "SERVICIO PUBLICO INTERMUNICIPAL" => "PASAJEROS",
+  }
+
 
   # Associations
   belongs_to :user

@@ -4,6 +4,9 @@
   <%= f.text_field :license %>
   <%= f.select :category, options_for_select(@categories) %>
   <%= f.select :sub_category, options_for_select(@sub_categories) %>
+  <%= f.text_field :unit_value %>
+  <%= f.text_field :unit_of_measurement, value: @unit_of_measurement ,:readonly => true %>
+  <%= f.text_field :year %>
   <%= f.submit %>
 
  <% end %>
