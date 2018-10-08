@@ -8,13 +8,13 @@ class VehiclesController < ApplicationController
 
   def new 
     @vehicle = Vehicle.new
+    @categories = Vehicle::CATEGORIES
+    @selected_category = Vehicle::CATEGORIES.first
+    @sub_categories = Vehicle::SUB_CATEGORIES[@selected_category]
+    gon.sub_category = Vehicle::SUB_CATEGORIES
   end
 
   def create 
-
-    binding.pry
-    1
-
     @vehicle = Vehicle.new(vehicle_params.merge({user: current_user}))
     if @vehicle.save 
       redirect_to vehicles_path
