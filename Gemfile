@@ -39,6 +39,14 @@ gem 'devise'
 gem 'prawn', '~> 2.2', '>= 2.2.2'
 gem 'prawn-table'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-jquery-ujs'
+end
+# Install gon to pass data to the JS
+gem 'gon'
+gem 'rabl-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
