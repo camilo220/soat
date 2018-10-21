@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: mdillon/postgis:9.5-alpine
+    environment:
+      POSTGRES_USER: soat
+      POSTGRES_DB: soat_development
+      POSTGRES_PASSWORD: ""
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
