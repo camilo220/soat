@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    image: mdillon/postgis:9.5-alpine
+    image: postgres:9.5-alpine
     environment:
       POSTGRES_USER: soat
       POSTGRES_DB: soat_development
