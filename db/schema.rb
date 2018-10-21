@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180924195525) do
+ActiveRecord::Schema.define(version: 20180925183125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "insurances", force: :cascade do |t|
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.string "payment_reference", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "vehicle_id", null: false
+    t.index ["vehicle_id"], name: "index_insurances_on_vehicle_id"
+  end
 
   create_table "rates", force: :cascade do |t|
     t.string "code", null: false
