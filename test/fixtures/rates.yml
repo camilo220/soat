@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  category: MyString
+  sub_category: MyString
+  age_range: MyString
+  bonus: 1
+  total: 1
+
+two:
+  code: MyString
+  category: MyString
+  sub_category: MyString
+  age_range: MyString
+  bonus: 1
+  total: 1
