@@ -1,0 +1,39 @@
+<h1><%= @insurance.vehicle.user.name %>, thank you very much for purchasing your SOAT with us</h1>
+<h3>below you can find a summary of your purchase</h3>
+<b>Categoria:</b>  <%= @insurance.vehicle.category %></br>
+<b>Placa:</b>  <%= @insurance.vehicle.license%> </br>
+<b>Validity:</b>  <%=@insurance.start_date%> -> <%=@insurance.end_date%> </br>
+<br>
+<table>
+  <tr>
+    <th align="left" style="font-weight: normal; text-align: start">Bonus:</th>
+    <th style="width:10px">
+    <th align="right" style="font-weight: normal;"><%= @insurance.rate.bonus %></th>
+  </tr>
+
+  <tr>
+    <th align="left" style="font-weight: normal; text-align: start">FOSYGA:</th>
+    <th style="width:10px">
+    <th align="right" style="font-weight: normal;"><%= @insurance.rate.fosyga %></th>
+  </tr>
+
+  <tr>
+    <th align="left" style="font-weight: normal; text-align: start">RUNT rate:</th>
+    <th style="width:10px">
+    <th align="right" style="font-weight: normal;"><%= @insurance.rate.runt %></th>
+  </tr>  
+
+  <tr>
+    <th align="left" style="font-weight: bold; text-align: start">Total:</th>
+    <th style="width:10px">
+    <th align="right" style="font-weight: bold;"><b><%= @insurance.rate.total %></b></th>
+  </tr>  
+
+</table>
+
+  
+  
+  
+
+
+

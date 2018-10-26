@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20180925183125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "vehicle_id", null: false
+    t.bigint "rate_id", null: false
+    t.index ["rate_id"], name: "index_insurances_on_rate_id"
     t.index ["vehicle_id"], name: "index_insurances_on_vehicle_id"
   end
 

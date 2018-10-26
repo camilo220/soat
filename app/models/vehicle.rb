@@ -1,7 +1,7 @@
 class Vehicle < ApplicationRecord
 
 
-  before_save :set_rate_id
+  before_validation :set_rate_id
   before_save :upcase_license
 
   # Associations
