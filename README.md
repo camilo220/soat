@@ -13,10 +13,14 @@ This app shloud be base on the document [http://www.fasecolda.com/files/1114/840
 * Rails version: 5.1.2
   
 ### Setup
-* install al the gems 
-  ``bundle install ``
+* install al the gems
+  *  run: ``bundle install ``
 
 * DB setup
-``rails db:create && rails db:migrate``
-and if you want run the seeds
-``rails db:seed``
+  * run ``rails db:create && rails db:migrate``
+  * and if you want run the seeds: ``rails db:seed``
+
+* Mailcatcher
+  * Install mail catcher gem (do not put it in the gem file): ``gem install mailcatcher``
+  * then open a terminal and run the mailcatcher service ``mailcatcher`` or ``mailcatcher -f`` to keep alive and not runnin like a demon.
+  * now you can see your emails here: http://localhost:1080/

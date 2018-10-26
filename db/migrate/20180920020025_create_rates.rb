@@ -16,5 +16,6 @@ class CreateRates < ActiveRecord::Migration[5.1]
       t.timestamps
     end
     add_index :rates, :code, unique: true
+    add_reference :rates, :coverage, foreign_key: true, index: true, null: false
   end
 end

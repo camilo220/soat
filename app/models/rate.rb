@@ -4,6 +4,8 @@ class Rate < ApplicationRecord
   # Associations
   has_many :vehicles
   has_many :insurances
+  
+  belongs_to :coverage  
 
   # Validations
   validates :code, uniqueness: true
